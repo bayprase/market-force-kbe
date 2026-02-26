@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::livewire('/', 'pages::admin.index');
+Route::livewire('/roles', 'pages::admin.role.index');
+Route::livewire('/roles/create', 'pages::admin.role.create');
