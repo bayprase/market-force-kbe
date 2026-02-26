@@ -4,7 +4,7 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public $title = 'Dashboard';
+    public $title = 'Market Force';
 };
 ?>
 
@@ -17,7 +17,7 @@ new class extends Component
                 <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700">Dashboard</a>
             </li>
             <!-- Dropdown -->
-            <li class="mb-2">
+            {{-- <li class="mb-2">
                 <button onclick="toggleDropdown()" class="w-full flex justify-between items-center px-3 py-2 rounded hover:bg-gray-700 focus:outline-none">
                     <span>Projects</span>
                     <svg id="dropdownIcon" class="w-4 h-4 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,9 +29,9 @@ new class extends Component
                     <li><a href="#" class="block px-3 py-2 rounded hover:bg-gray-700">Project B</a></li>
                     <li><a href="#" class="block px-3 py-2 rounded hover:bg-gray-700">Project C</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="mb-2">
-                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700">Settings</a>
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700">Proses Develop</a>
             </li>
         </ul>
     </nav>
