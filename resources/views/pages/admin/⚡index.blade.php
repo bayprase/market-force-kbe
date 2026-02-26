@@ -191,15 +191,15 @@ new class extends Component
                                 </td>
 
                                 <td class="border text-center">
-                                    {{ $students['completed_sessions'] + $students['session_limit'] }}
-                                </td>
-
-                                <td class="border text-center">
-                                    {{ $students['completed_sessions'] }}
-                                </td>
-
-                                <td class="border text-center">
                                     {{ $students['session_limit'] }}
+                                </td>
+
+                                <td class="border text-center">
+                                    {{ $students['session_limit'] - $students['remaining_sessions'] }}
+                                </td>
+
+                                <td class="border text-center">
+                                    {{ $students['remaining_sessions'] }}
                                 </td>
 
                                 <td class="border text-center">
