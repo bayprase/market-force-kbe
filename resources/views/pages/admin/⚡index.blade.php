@@ -195,11 +195,11 @@ new class extends Component
                                 </td>
 
                                 <td class="border text-center">
-                                    {{ $students['session_limit'] - $students['remaining_sessions'] }}
+                                    {{ $students['session_limit'] - $students['total_sessions'] }}
                                 </td>
 
                                 <td class="border text-center">
-                                    {{ $students['remaining_sessions'] }}
+                                    {{ $students['total_sessions'] }}
                                 </td>
 
                                 <td class="border text-center">
