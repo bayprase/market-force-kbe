@@ -187,7 +187,7 @@ new class extends Component
                                 </td>
 
                                 <td class="border px-3">
-                                    {{ $students['nama_lengkap'] }}
+                                    {{ ucwords($students['nama_lengkap']) }}
                                 </td>
 
                                 <td class="border text-center">
