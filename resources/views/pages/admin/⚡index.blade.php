@@ -187,7 +187,7 @@ new class extends Component
                                 </td>
 
                                 <td class="border px-3">
-                                    {{ ucwords($students['nama_lengkap']) }}
+                                    {{ Illuminate\Support\Str\Str::title($students['nama_lengkap']) }}
                                 </td>
 
                                 <td class="border text-center">
