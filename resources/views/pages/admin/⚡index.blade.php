@@ -2,6 +2,7 @@
 
 use Livewire\Component;
 use App\Services\APIService;
+use Illuminate\Support\Str;
 
 new class extends Component
 {
@@ -187,7 +188,7 @@ new class extends Component
                                 </td>
 
                                 <td class="border px-3">
-                                    {{ Illuminate\Support\Str\Str::title($students['nama_lengkap']) }}
+                                    {{ Str::title($students['nama_lengkap']) }}
                                 </td>
 
                                 <td class="border text-center">
