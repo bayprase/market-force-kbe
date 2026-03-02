@@ -14,7 +14,7 @@ new class extends Component
     <nav>
         <ul>
             <li class="mb-2">
-                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700">Dashboard</a>
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700 {{ request()->is('/') ? 'font-bold text-white bg-gray-700' : '' }}">Dashboard</a>
             </li>
             <!-- Dropdown -->
             {{-- <li class="mb-2">

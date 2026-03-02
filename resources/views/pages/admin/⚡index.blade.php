@@ -2,11 +2,10 @@
 
 use Livewire\Component;
 use App\Services\APIService;
-use Illuminate\Support\Str;
 
 new class extends Component
 {
-    public $stats = [];
+    public $stats = [], $brands = [], $kbmode = [];
     public $program = '';
     public $nama = '';
     public $tanggal = '';
@@ -29,6 +28,8 @@ new class extends Component
         ];
 
         $this->stats = $api->getStats($this->page, $filters);
+        $this->brands = $this->stats['totalSiswaPerBrand'];
+        $this->kbmode = $this->stats['kbmMode'];
 
         $this->loading = false;
     }
@@ -92,8 +93,12 @@ new class extends Component
         <p class="text-2xl text-gray-400">Belum ada data apapun disini.</p>
         @endforelse
     </div>
-    
-    <div class="grid grid-cols-1 p-6 w-full">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 w-full">
+        <livewire:charts.polar_area class="col-span-1" :brands='$brands' title="Data Per Brand" id="polar_1" />
+        <livewire:charts.polar_area class="col-span-1" :brands='$kbmode' title="KBM Mode Online vs Offline" id="polar_2" />
+    </div>
+    <div class="grid grid-cols- p-6 w-full">
         <div class="col-span-1 bg-white shadow p-4 rounded-md">
             <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base">
                 <p class="text-2xl">Statistik Sesi Siswa</p>
@@ -188,7 +193,7 @@ new class extends Component
                                 </td>
 
                                 <td class="border px-3">
-                                    {{ Str::title($students['nama_lengkap']) }}
+                                    {{ $students['nama_lengkap'] }}
                                 </td>
 
                                 <td class="border text-center">
@@ -200,14 +205,14 @@ new class extends Component
                                 </td>
 
                                 <td class="border text-center">
-                                    {{ $students['session_limit'] }}
+                                    {{ ($students['completed_sessions'] + $students['session_limit']) - $students['completed_sessions'] }}
                                 </td>
 
                                 <td class="border text-center">
 
-                                    @if($students['session_limit'] > 0)
+                                    @if($students['completed_sessions'] + $students['session_limit'] > 0)
                                         <span class="text-green-600 font-semibold">Aktif</span>
-                                    @elseif($students['session_limit'] == 0)
+                                    @elseif($students['completed_sessions'] + $students['session_limit'] == 0)
                                         <span class="text-red-500 font-semibold">Selesai</span>
                                     @else
                                         <span class="text-yellow-600 font-semibold">Hold</span>
@@ -272,9 +277,9 @@ new class extends Component
         </div>
     </div>
 </div>
-
 <script>
-Livewire.on('scroll-top', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    Livewire.on('scroll-top', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 </script>
+

@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="template grid grid-cols-1 md:grid-cols-[0.3fr_2fr] bg-gray-200">
-            <livewire:components.sidebar title="Dashboard" />
+            <livewire:sidebar title="Dashboard" />
             {{ $slot }}
         </div>
         @livewireScripts
